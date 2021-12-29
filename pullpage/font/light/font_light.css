@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'PaneuropaRetro-Light';
+  src: url('PaneuropaRetro-Light.eot');
+  src: url('PaneuropaRetro-Light.eot?#iefix') format('embedded-opentype'),
+       url('PaneuropaRetro-Light.svg#PaneuropaRetro-Light') format('svg'),
+       url('PaneuropaRetro-Light.ttf') format('truetype'),
+       url('PaneuropaRetro-Light.woff') format('woff'),
+       url('PaneuropaRetro-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
