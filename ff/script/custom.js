@@ -8,6 +8,7 @@ $(document).ready(function(){
   $('.imgIcon3').animate({'bottom':'30%','opacity':'1'},2000,'linear')
   ))))))
 	
+	
 	fullset();
 	quickClick();
 });
@@ -20,11 +21,23 @@ function fullset(){
 	//마우스 휠 이벤트
 	$(window).bind("mousewheel", function(event){
 		let page = $(".quick ul li.on");
+
+		if(page.index() >= 0 && page.index() < 0){
+			// alert("제발되주라고제발ㅆㅂ")
+		}else if(page.index() >= 1 && page.index() < 2){
+			$('.introtxtWrap').animate({'right':'50%','opacity':'1'},1000)
+		}else if(page.index() >= 2 && page.index() < 3){
+			$('.url').animate({'margin-left':'0','opacity':'1'},1000)
+		}else if(page.index() >= 3 && page.index() < 4){
+			$('.contactTxt').animate({'left':'50%','opacity':'1'},1000)
+		}
 		//alert(page.index()+1);  // 현재 on 되어있는 페이지 번호
 		if($("body").find("#fullpage:animated").length >= 1) return false;
+
 		//마우스 휠을 위로
 		if(event.originalEvent.wheelDelta >= 0) {
 			let before=page.index();
+			let $2=$('#2');
 			if(page.index() >= 0) page.prev().addClass("on").siblings(".on").removeClass("on");//퀵버튼옮기기
 			let pagelength=0;
 			for(let i=1; i<(before); i++)
@@ -36,7 +49,7 @@ function fullset(){
 				$("#fullpage").animate({"top": -pagelength + "px"},1000, "swing");
 			}else{
 				alert("첫번째페이지 입니다.");
-			}	
+			}
 		}else{ // 마우스 휠을 아래로	
 			let nextPage=parseInt(page.index()+1); //다음페이지번호
 			let lastPageNum=parseInt($(".quick ul li").size()); //마지막 페이지번호
@@ -90,4 +103,7 @@ function quickClick(){
 		$("#fullpage").animate({"top": -length + "px"},800, "swing");
 		return false;
 	});
+	
+
 }
+
