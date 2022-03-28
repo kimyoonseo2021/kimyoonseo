@@ -63,7 +63,7 @@ $(document).ready(function(){
   //next, prev
   $arrowWrap.find('a').click(function(e){
     e.preventDefault();
-    console.log("c:"+currentidx)
+    // console.log("c:"+currentidx)
 
     if($(this).hasClass('prev')){
       goToSlider(currentidx-1);
@@ -105,6 +105,54 @@ $(document).ready(function(){
       autoPlay()
     })//slide e 
 
+  const $menuSlidesContainer=$('.menuSlides_container')
+  $menuSlidesContainerDIV=$('.menuSlides_container>div')
+  $menuSlidesBtn=$('.menuSlides_btn a'),
+  $bestMenu=$menuSlidesContainer.children('.bestMenu'),
+  $limitedMenu=$menuSlidesContainer.children('.limitedMenu'),
+  $rollMenu=$menuSlidesContainer.children('.rollMenu'),
+  $ramenMenu=$menuSlidesContainer.children('.ramenMenu'),
+  $sideMenu=$menuSlidesContainer.children('.sideMenu'),
+  $dessertMenu=$menuSlidesContainer.children('.dessertMenu');
+  //나중에 메뉴 추가하면 변수 추가 하시길~~~~
+  
+  $menuSlidesBtn.eq(0).click(function(){
+    $menuSlidesBtn.removeClass('on')
+    $(this).addClass('on')
+    $menuSlidesContainerDIV.removeClass('on')
+    $bestMenu.addClass('on')
+  })
+  $menuSlidesBtn.eq(1).click(function(){
+    $menuSlidesBtn.removeClass('on')
+    $(this).addClass('on')
+    $menuSlidesContainerDIV.removeClass('on')
+    $limitedMenu.addClass('on')
+  })
+  $menuSlidesBtn.eq(2).click(function(){
+    $menuSlidesBtn.removeClass('on')
+    $(this).addClass('on')
+    $menuSlidesContainerDIV.removeClass('on')
+    $rollMenu.addClass('on')
+  })
+  $menuSlidesBtn.eq(3).click(function(){
+    $menuSlidesBtn.removeClass('on')
+    $(this).addClass('on')
+    $menuSlidesContainerDIV.removeClass('on')
+    $ramenMenu.addClass('on')
+  })
+  $menuSlidesBtn.eq(4).click(function(){
+    $menuSlidesBtn.removeClass('on')
+    $(this).addClass('on')
+    $menuSlidesContainerDIV.removeClass('on')
+    $sideMenu.addClass('on')
+  })
+  $menuSlidesBtn.eq(5).click(function(){
+    $menuSlidesBtn.removeClass('on')
+    $(this).addClass('on')
+    $menuSlidesContainerDIV.removeClass('on')
+    $dessertMenu.addClass('on')
+  })
+
   const $menuItem=$('.menu_item'),
   $prev2=$('.prev2'),
   $next2=$('.next2'),
@@ -134,62 +182,108 @@ $(document).ready(function(){
     currentMenu=num;
   }
 
-  const $sec1=0,
+  // $sec7=$('#sec7').offset().top;
+  // $('#sec4').css({'background-color':'yellow'})
+  // if(scroll>=$sec4 && scroll < $sec4Two){
+  //   alert('test')
+  // }
+
+  const $scrollindicator=$('.scrollindicator'),
+  $scrollindicatorA=$scrollindicator.children('a');
+  let $sec1=0,
   $sec2=$('#sec2').offset().top,
   $sec3=$('#sec3').offset().top,
   $sec4=$('#sec4').offset().top,
   $sec4Two=$('#sec4-2').offset().top,
   $sec5=$('#sec5').offset().top,
   $sec6=$('#sec6').offset().top;
-  // $sec7=$('#sec7').offset().top;
-
-  const $scrollindicator=$('.scrollindicator'),
-  $scrollindicatorA=$scrollindicator.children('a')
 
   // console.log($sec1+'/'+$sec2+'/'+$sec3+'/'+$sec4+'/'+$sec4Two+'/'+$sec5+'/'+$sec6+'/'+sec7)
   console.log($sec1+'/'+$sec2+'/'+$sec3+'/'+$sec4+'/'+$sec4Two+'/'+$sec5+'/'+$sec6+'/'+sec7)
 
+  console.log('$sec4:'+$sec4)
   $(window).scroll(function(){
     let scroll=$(this).scrollTop();
+    
+    $sec2=$('#sec2').offset().top-200;
+    $sec3=$('#sec3').offset().top-200;
+    $sec4=$('#sec4').offset().top-300;
+    $sec4Two=$('#sec4-2').offset().top-300;
+    $sec5=$('#sec5').offset().top;
+    $sec6=$('#sec6').offset().top-400;
+    $sec7=$('#sec7').offset().top-500;
+    // $sec8=$('#sec8').offset().top;
 
-    if(scroll>=$sec1 && scroll < $sec2){
+   
+
+  
+  // 초기값
+  $('#sec4 .about_ImgWrap').css({'margin-left':'-400px','opacity':'0'});
+  $('#sec4-2 .about_ImgWrap').css({'margin-left':'400px','opacity':'0'});
+  // $('#sec7 .sns_inner').css({'margin-bottom':'400px','opacity':'0'});
+
+  // $('#sec6 .storeWrap').css({'bacground-position':'-400px','opacity':'0'});
+
+    if(scroll>=0 && scroll < $sec2){
       $scrollindicatorA.removeClass('on')
       $scrollindicatorA.eq(0).addClass('on');
 
     }else if(scroll>=$sec2 && scroll < $sec3){
       $scrollindicatorA.removeClass('on')
       $scrollindicatorA.eq(1).addClass('on');
-      $('.codawariWrap .codawari_inner').animate({'margin-top':0,'opacity':1},1000,'linear')
+      // $('.codawariWrap .codawari_inner').animate({'margin-top':0,'opacity':1},1000,'linear')
 
     }else if(scroll>=$sec3 && scroll < $sec4){
       $scrollindicatorA.removeClass('on')
       $scrollindicatorA.eq(2).addClass('on');
+      $('.codawariWrap .codawari_inner').animate({'margin-top':0,'opacity':1},1000,'linear')
+
+  
+    }else if(scroll>= $sec4 && scroll < $sec4Two){
+
+      $scrollindicatorA.removeClass('on')
+      $scrollindicatorA.eq(3).addClass('on');
       // animate 
       $('.aboutWrap .about_maintx').animate({'top':-140,'opacity':1},1000,'linear')
         $('.aboutWrap .about_txtwrap').animate({'margin-left':'5%'},1000,'linear')
-        $('.aboutWrap .about_ImgWrap').animate({'background-position':'-250'},1000,'linear')
+        $('#sec4 .about_ImgWrap').animate({'margin-left':'0','opacity':'1'},1000)
 
-    }else if(scroll>=$sec4 && scroll < $sec4Two){
+    }else if(scroll>=$sec4Two && scroll <$sec5){
       $scrollindicatorA.removeClass('on')
-      $scrollindicatorA.eq(3).addClass('on');
+      $scrollindicatorA.eq(4).addClass('on');
        //animate
        $('#sec4-2 .about_maintx').animate({'top':-150,'opacity':1},1000,'linear')
        $('#sec4-2 .about_txtwrap').animate({'margin-right':'5%'},1000,'linear')
-       $('#sec4-2 .about_ImgWrap').animate({'background-position':'0'},1500,'linear')
-       
-    }else if(scroll>=$sec4Two && scroll < $sec5){
-      $scrollindicatorA.removeClass('on')
-      $scrollindicatorA.eq(4).addClass('on');
+       $('#sec4-2 .about_ImgWrap').animate({'margin-left':'0','opacity':'1'},1000)
 
-    }else if(scroll>=$sec5 && scroll < $sec6){
+    }else if(scroll>=$sec5 && scroll <$sec6){
       $scrollindicatorA.removeClass('on')
       $scrollindicatorA.eq(5).addClass('on');
-       //animate
-      //  $('.storeWrap').animate({'background-position':'0'},1200,'linear')
+     
 
-    }else if(scroll>=$sec6 && scroll < $sec7){
+    }else if(scroll>=$sec6 && scroll <$sec7){
       $scrollindicatorA.removeClass('on')
       $scrollindicatorA.eq(6).addClass('on');
+      $('#sec6 .storebg img').animate({'bottom':'0'},1000,'linear')
+
+    // }else if(scroll>=$sec7 && scroll <$sec8){
+    //   $scrollindicatorA.removeClass('on')
+    //   $scrollindicatorA.eq(7).addClass('on');
+
+      
+    // }else if(scroll>=$sec4Two && scroll < $sec5){
+    //   $scrollindicatorA.removeClass('on')
+    //   $scrollindicatorA.eq(4).addClass('on');
+
+    // }else if(scroll>=$sec5 && scroll < $sec6){
+    //   $scrollindicatorA.removeClass('on')
+    //   $scrollindicatorA.eq(5).addClass('on');
+    //    //animate
+    //   //  $('.storeWrap').animate({'background-position':'0'},1200,'linear')
+
+    // }else if(scroll>=$sec6 && scroll < $sec7){
+    //   $scrollindicatorA.removeClass('on')
+    //   $scrollindicatorA.eq(6).addClass('on');
      
     }else{
       // (scroll>=$sec6 && scroll < $sec7)
@@ -198,32 +292,33 @@ $(document).ready(function(){
     }
   })
 
-  const $snsItem=$('.snsitem'),
-  $snsPrev=$('.snsprev'),
-  $snsNext=$('.snsnext'),
-  $snsItemSns=$snsItem.children('.sns');
 
-  let snsItemSnsLng=$snsItemSns.length,
-  currentSns=0;
-  console.log(snsItemSnsLng);
+  // const $snsItem=$('.snsitem'),
+  // $snsPrev=$('.snsprev'),
+  // $snsNext=$('.snsnext'),
+  // $snsItemSns=$snsItem.children('.sns');
 
-  $snsPrev.click(function(){
-    if(currentSns===0){
-      gotosnsSlide(3)
-    }else{
-      gotosnsSlide(currentSns-1)
-    }
-  })
+  // let snsItemSnsLng=$snsItemSns.length,
+  // currentSns=0;
+  // console.log(snsItemSnsLng);
 
-  $snsNext.click(function(){
-    if(currentSns<3){
-      gotosnsSlide(currentSns+1)
-    }else{
-      gotosnsSlide(0)
-    }
-  })
-  function gotosnsSlide(num){
-    $snsItem.css('left',(-33.3333*num)+'%');
-    currentSns=num;
-  }
+  // $snsPrev.click(function(){
+  //   if(currentSns===0){
+  //     gotosnsSlide(2)
+  //   }else{
+  //     gotosnsSlide(currentSns-1)
+  //   }
+  // })
+
+  // $snsNext.click(function(){
+  //   if(currentSns<2){
+  //     gotosnsSlide(currentSns+1)
+  //   }else{
+  //     gotosnsSlide(0)
+  //   }
+  // })
+  // function gotosnsSlide(num){
+  //   $snsItem.css('left',(-33.3333*num)+'%');
+  //   currentSns=num;
+  // }
 })

@@ -1,0 +1,95 @@
+<section id="sec7" class="snsWrap red">
+  <div class="snscontainer inner">
+    <div class="snsitems">
+      
+      <div class="snsitem">
+        <div class="sns">
+          <div class="snsleft">
+            <a href="#none">
+              <img src="images/hu.png" alt="">
+            </a>
+          </div>
+          <div class="subitem">
+            <a href="#none"><img src="images/sns/coffe.png" alt=""></a>
+            <a href="#none"><img src="images/sns/shrimp.png" alt=""></a>
+          </div>
+        </div>
+        <div class="sns">
+          <div class="snsleft">
+            <a href="#none">
+              <img src="images/hu.png" alt="">
+            </a>
+          </div>
+          <div class="subitem">
+            <a href="#none"><img src="images/sns/coffe.png" alt=""></a>
+            <a href="#none"><img src="images/sns/shrimp.png" alt=""></a>
+          </div>
+        </div>
+        <div class="sns">
+          <div class="snsleft">
+            <a href="#none">
+              <img src="images/hu.png" alt="">
+            </a>
+          </div>
+          <div class="subitem">
+            <a href="#none"><img src="images/sns/coffe.png" alt=""></a>
+            <a href="#none"><img src="images/sns/shrimp.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- --sns slides--  -->
+    <div class="snsallow">
+      <a href="#none" class="snsprev"></a>
+      <a href="#none" class="snsnext"></a>
+    </div>
+  </div>
+ 
+</section>
+
+
+
+.snsWrap{padding:150px 0;
+  background-image:url(../images/sns/bg.png);
+  background-size:cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;}
+  .snscontainer{
+    position: relative;
+    height: 500px; overflow: hidden;}
+  
+  .snsitems{position: relative; width: 90%; height: 100%; margin:0 auto;
+    overflow: hidden;
+  }
+  
+  .snsitem{
+    border: 1px solid rgb(255, 162, 162);
+    position: absolute; top:0; left:0;
+    width: 300%; display: flex;}
+  
+  .snsitem .sns{width: 33.3333%; display: flex; align-items: center; justify-content: space-between;}
+  
+  .snsleft{flex:1; padding:10px 0 10px 10px; height: auto; box-sizing: border-box;}
+    .snsleft>a{
+      display: block;
+      width:100%; height: 100%;}
+  
+    .subitem{
+      border: 1px solid rgb(109, 87, 255);
+      width: 250px; height: 100%;
+      padding:10px; box-sizing: border-box;}
+    .subitem a{display: inline-block; background-color: rgb(255, 220, 220);;}
+    .subitem a img{}
+    .subitem a:nth-child(1){margin-bottom:10px;}
+    .subitem a:nth-child(2){}
+  /* sns item e  */
+    .snsallow{position: absolute; top:50%; left:50%;
+      transform: translate(-50%,-50%);
+      width: 100%; height: auto;
+      display: flex; justify-content: space-between; }
+    .snsallow a{ visibility: visible;
+      display: block; width: 50px; height: 50px;
+      background-repeat: no-repeat; background-size: contain; background-position:center center;}
+    .snsallow .snsprev{background-image: url(../images/menuslide/allow-left.png);}
+    .snsallow .snsnext{background-image: url(../images/menuslide/allow-right.png);}
